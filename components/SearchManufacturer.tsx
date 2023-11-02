@@ -22,13 +22,9 @@ const SearchManufacturer = ({
             .includes(query.toLowerCase().replace(/\s+/g, ''))
         );
 
-  useEffect(() => {
-    console.log(manufacturer);
-  }, [manufacturer]);
-
   return (
     <div className='search-manufacturer'>
-      <Combobox value={manufacturer} onChange={setManufacturer}>
+      <Combobox>
         <div className='relative w-full'>
           <Combobox.Button className='absolute top-[14px]'>
             <Image

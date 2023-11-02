@@ -15,31 +15,31 @@ export default async function Home() {
         <div className='home__text-container'>
           <h1 className='text-4xl font-extrabold'>Car Catalogue</h1>
           <p>Explore the cars you might like</p>
-
-          <div className='home__filters'>
-            <SearchBar />
-
-            <div className='home__filter-container'>
-              <CustomFilter title='fuel' />
-              <CustomFilter title='year' />
-            </div>
-          </div>
-
-          {!isDataEmpty ? (
-            <section>
-              <div className='home__cars-wrapper'>
-                {allCars?.map((car) => (
-                  <CarCard car={car} />
-                ))}
-              </div>
-            </section>
-          ) : (
-            <div className='home__error-container'>
-              <h2 className='text-black text-xl font-bold'>Oops, no results</h2>
-              <p>{allCars?.message}</p>
-            </div>
-          )}
         </div>
+
+        <div className='home__filters'>
+          <SearchBar />
+
+          <div className='home__filter-container'>
+            <CustomFilter title='fuel' />
+            <CustomFilter title='year' />
+          </div>
+        </div>
+
+        {!isDataEmpty ? (
+          <section>
+            <div className='grid 2xl:grid-cols-4 w-full gap-8 pt-14'>
+              {allCars?.map((car, i) => (
+                <CarCard key={i} car={car} />
+              ))}
+            </div>
+          </section>
+        ) : (
+          <div className='home__error-container'>
+            <h2 className='text-black text-xl font-bold'>Oops, no results</h2>
+            <p>{allCars?.message}</p>
+          </div>
+        )}
       </div>
     </main>
   );
