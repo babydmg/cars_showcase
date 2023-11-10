@@ -11,12 +11,12 @@ const ShowMore = ({ pageNumber, isNext }: ShowMoreProps) => {
   // console.log(pageNumber);
   // console.log(isNext);
 
-  const newLimit = (pageNumber + 1) * 10;
-  console.log(newLimit);
   const handleNavigation = () => {
-    const newPathName = updateSearchParams('limit', `${newLimit}`);
+    const newLimit = (pageNumber + 1) * 10;
 
-    router.push(newPathName);
+    const newPathname = updateSearchParams('limit', `${newLimit}`);
+
+    router.push(newPathname);
   };
 
   return (
